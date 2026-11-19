@@ -7,3 +7,8 @@ edition = "2024"
 serde = { version = "1.0.229", features = ["derive"] }
 serde_json = "1.0.154"
 sha2 = "0.11.1"
+
+[workspace]
+members = ["dungeon-cli"]
+# `cargo test`/`cargo build` in the root cover the library and the command line tool
+default-members = [".", "dungeon-cli"]
