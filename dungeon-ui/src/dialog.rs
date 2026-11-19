@@ -11,12 +11,13 @@ use crate::palette::Palette;
 const WIDTH: f32 = 340.0;
 const BUTTON_SIZE: [f32; 2] = [88.0, 30.0];
 
-/// A question with a confirm and a cancel button.
+/// A question with a confirmation and a cancel button, or a message with one button.
 pub struct Confirm<'a> {
     pub title: &'a str,
     pub message: &'a str,
     pub confirm: &'a str,
-    pub cancel: &'a str,
+    /// Text of the cancel button, `None` for a message with only the confirm button
+    pub cancel: Option<&'a str>,
     /// Shows the confirm button in red, for actions like quitting or overwriting
     pub destructive: bool,
 }
@@ -66,9 +67,11 @@ impl Confirm<'_> {
                         confirm = confirm.fill(palette.room(RoomType::Boss));
                     }
                     let confirmed = ui.add(confirm).clicked();
-                    ui.add_space(2.0);
-                    let cancel = Button::new(self.cancel).min_size(BUTTON_SIZE.into());
-                    let cancelled = ui.add(cancel).clicked();
+                    let cancelled = self.cancel.is_some_and(|cancel| {
+                        ui.add_space(2.0);
+                        ui.add(Button::new(cancel).min_size(BUTTON_SIZE.into()))
+                            .clicked()
+                    });
                     (confirmed, cancelled)
                 })
                 .inner

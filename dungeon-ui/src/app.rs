@@ -260,7 +260,7 @@ impl DungeonApp {
             title: "Quit",
             message: "Do you really want to quit?",
             confirm: "Quit",
-            cancel: "Cancel",
+            cancel: Some("Cancel"),
             destructive: true,
         };
         match dialog.show(ctx, Id::unique("quit_dialog"), self.palette(), self.dark) {
