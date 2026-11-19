@@ -6,7 +6,8 @@ edition = "2024"
 [dependencies]
 clap = { version = "4.6.8", features = ["derive"] }
 dungeon-generator = { version = "0.1.0", path = ".." }
-eframe = "0.37.0"
+# only the native desktop targets (Windows, macOS, Linux) are supported
+eframe = { version = "0.37.0", default-features = false, features = ["wgpu", "default_fonts", "clipboard", "wayland", "x11"] }
 egui = { version = "0.37.0", features = ["monochrome_emoji_fonts"] }
 egui_extras = { version = "0.37.0", features = ["image"] }
 getrandom = "0.4.3"
