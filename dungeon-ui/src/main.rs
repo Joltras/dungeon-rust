@@ -1,3 +1,4 @@
+mod geometry;
 mod palette;
 
 fn main() {
