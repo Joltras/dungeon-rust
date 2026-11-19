@@ -3,6 +3,7 @@
 
 mod app;
 mod dialog;
+mod files;
 mod floor_view;
 mod geometry;
 mod history;

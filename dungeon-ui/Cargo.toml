@@ -11,6 +11,8 @@ egui = { version = "0.37.0", features = ["monochrome_emoji_fonts"] }
 egui_extras = { version = "0.37.0", features = ["image"] }
 getrandom = "0.4.3"
 image = { version = "0.25.10", default-features = false, features = ["png"] }
+rfd = "0.18.0"
 
 [dev-dependencies]
 egui_kittest = { version = "0.37.0", features = ["eframe"] }
+tempfile = "3.27.0"
