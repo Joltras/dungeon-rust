@@ -1,19 +1,14 @@
+//! Generator for 2D dungeon floors, a port of the Python dungeon generator.
+//!
+//! The same seed and floor id produce the same floor as the Python version.
+
+pub mod floor;
+pub mod generator;
+pub mod room;
+pub mod room_description;
 pub mod utils;
-mod room;
-mod floor;
-mod generator;
 
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+pub use floor::Floor;
+pub use generator::Generator;
+pub use room::Room;
+pub use utils::room_type::RoomType;

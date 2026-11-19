@@ -1,0 +1,12 @@
+[package]
+name = "dungeon-cli"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.6.8", features = ["derive"] }
+dungeon-generator = { version = "0.1.0", path = ".." }
+getrandom = "0.4.3"
+
+[dev-dependencies]
+tempfile = "3.27.0"

@@ -17,17 +17,14 @@ pub const START_ROOM_POSITION: (i32, i32) = (4, 3);
 pub const START_ROOM_RESEED_MIN_ROOMS: i32 = 16;
 pub const MAX_START_ROOM_RESEEDS: i32 = 10;
 
-pub const SECRET_ROOM_SEARCH: [(i32, bool); 2] = [
-    (3, true),
-    (2, true),
-];
+pub const SECRET_ROOM_SEARCH: [(i32, bool); 2] = [(3, true), (2, true)];
 
 pub const SECRET_ROOM_ATTEMPTS: i32 = 300;
 pub const REQUIRED_DEAD_ENDS: i32 = 3;
 pub const MAX_GENERATION_ATTEMPTS: i32 = 200;
 
-pub const BIG_BOSS_ROOM_CHANCE: f32 = 0.1;
-pub const LONG_BOSS_ROOM_CHANCE: f32 = 0.2;
+pub const BIG_BOSS_ROOM_CHANCE: f64 = 0.1;
+pub const LONG_BOSS_ROOM_CHANCE: f64 = 0.2;
 pub const BOSS_ROOM_CANDIDATES: i32 = 2;
 
 pub const X_OFFSET: f32 = (FLOOR_WIDTH * ROOM_WIDTH) as f32 / 2.0;
