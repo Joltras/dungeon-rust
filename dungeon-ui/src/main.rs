@@ -11,10 +11,14 @@ mod legend;
 mod palette;
 mod reveal;
 
+use std::path::PathBuf;
+
 use clap::Parser;
+use dungeon_generator::utils::constants::DEFAULT_FLOOR_DIRECTORY;
 use eframe::egui;
 
 use crate::app::{DungeonApp, TITLE};
+use crate::files::NativeFilePicker;
 
 #[derive(Parser, Debug)]
 #[command(about = "Shows generated dungeon floors.")]
@@ -44,6 +48,14 @@ fn main() -> eframe::Result {
     eframe::run_native(
         TITLE,
         options,
-        Box::new(move |cc| Ok(Box::new(DungeonApp::new(&cc.egui_ctx, &seed, args.floor)))),
+        Box::new(move |cc| {
+            Ok(Box::new(DungeonApp::new(
+                &cc.egui_ctx,
+                &seed,
+                args.floor,
+                PathBuf::from(DEFAULT_FLOOR_DIRECTORY),
+                Box::new(NativeFilePicker),
+            )))
+        }),
     )
 }
