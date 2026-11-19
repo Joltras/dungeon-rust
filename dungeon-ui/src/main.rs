@@ -1,3 +1,4 @@
+mod floor_view;
 mod geometry;
 mod history;
 mod palette;
